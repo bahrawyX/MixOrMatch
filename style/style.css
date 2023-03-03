@@ -1,0 +1,419 @@
+@font-face {
+    font-family: "Creepy";
+    src: url(../Assets/Fonts/Creepy.woff) format("woff"), url(../Assets/Fonts/Creepy.woff2) format("woff2");
+}
+
+@font-face {
+    font-family: "Lunacy";
+    src: url(../Assets/Fonts/Lunacy.woff) format("woff"), url(../Assets/Fonts/Lunacy.woff2) format("woff2");
+}
+
+html {
+    min-height: 100vh;
+    cursor: url(../Assets/Cursors/Ghost.cur), auto;
+}
+
+body {
+    margin: 0 !important;
+    background: radial-gradient(#9d5900, #3d2200);
+}
+
+.page-title {
+    color: #ff6d00;
+    font-family: "Creepy", serif;
+    font-weight: normal;
+    font-size: 6em;
+    text-align: center;
+    margin: 5px 5px;
+}
+
+.overlay-text {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #ff6d00;
+    font-family: "Creepy", serif;
+}
+
+.overlay-text.visible {
+    display: flex;
+    animation: overlay-grow 0.5s forwards;
+}
+
+.overlay-text img {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 20px;
+    right: 100px;
+    transform: rotateY(180deg);
+    /* animation: ghostmoving 10s; */
+    /* animation-iteration-count: infinite; */
+}
+
+.ghost-canvas {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    margin: 0px px;
+}
+
+.ghost-body {
+    position: absolute;
+    height: 28%;
+    width: 22%;
+    background-color: #ff6d00;
+    left: 40%;
+    top: 33%;
+    /*ANIMATION START*/
+    animation-name: floating;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /*ANIMATION END*/
+}
+
+.ghost-body-copy {
+    position: absolute;
+    height: 28%;
+    width: 22%;
+    background-color: #ff6d00;
+    left: 40%;
+    top: 33%;
+    z-index: 1;
+}
+
+.ghost-head {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -50%;
+    background-color: #ff6d00;
+    border-radius: 90px;
+}
+
+.eye-right {
+    position: absolute;
+    height: 22%;
+    width: 20%;
+    right: 22%;
+    top: 40%;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.eye-left {
+    position: absolute;
+    height: 22%;
+    width: 20%;
+    left: 22%;
+    top: 40%;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.mouth {
+    position: absolute;
+    height: 26%;
+    width: 24%;
+    left: 38%;
+    top: 70%;
+    background-color: black;
+    border-radius: 50%;
+    z-index: 2
+}
+
+.down-bubble {
+    position: absolute;
+    height: 55%;
+    width: 100%;
+    top: 70%;
+}
+
+.bubble-1 {
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    background-color: #ff6d00;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /*ANIMATION START*/
+    animation-name: bubble;
+    animation-duration: 2.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /*ANIMATION END*/
+}
+
+.bubble-2 {
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    left: 25%;
+    background-color: #ff6d00;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /*ANIMATION START*/
+    animation-name: bubble;
+    animation-duration: 3.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /*ANIMATION END*/
+}
+
+.bubble-3 {
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    right: 25%;
+    background-color: #ff6d00;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /*ANIMATION START*/
+    animation-name: bubble;
+    animation-duration: 3.4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /*ANIMATION END*/
+}
+
+.bubble-4 {
+    position: absolute;
+    height: 100%;
+    width: 25%;
+    right: 0;
+    background-color: #ff6d00;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    /*ANIMATION START*/
+    animation-name: bubble;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    /*ANIMATION END*/
+}
+
+
+/*ANIMATION START*/
+
+@keyframes bubble {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 20%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes floating {
+    0% {
+        top: 33%;
+    }
+    30% {
+        top: 40%;
+    }
+    50% {
+        top: 33%;
+    }
+    70% {
+        top: 25%;
+    }
+    100% {
+        top: 33%;
+    }
+}
+
+
+/*ANIMATION END*/
+
+@keyframes ghostmoving {
+    0% {
+        top: 20px;
+        right: 100px;
+    }
+    49.99% {
+        transform: rotateY(180deg);
+        right: 1400px;
+    }
+    50% {}
+    80% {
+        transform: rotateY(-180deg);
+    }
+    100% {
+        transform: rotateY(-180deg);
+    }
+}
+
+@keyframes overlay-grow {
+    from {
+        background: rgba(0, 0, 0, 0);
+        font-size: none;
+    }
+    to {
+        background: rgba(0, 0, 0, 0.8);
+        font-size: 10em;
+    }
+}
+
+.game-info {
+    /* color: #ffbb89; */
+    font-size: 4em;
+    font-family: "Lunacy", serif;
+    color: #000 !important;
+}
+
+.game-info-container {
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px !important;
+    margin: 5px 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.flip-card {
+    height: 175px;
+    width: 125px;
+    position: relative;
+    cursor: url(../Assets/Cursors/GhostHover.cur), auto;
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border: 1px solid;
+    transition: 0.3s;
+}
+
+.card-back {
+    background-color: #000;
+    border-color: #ff6d00;
+}
+
+.card-front {
+    border: #333;
+    background-color: #ffbb89;
+    transform: rotateY(180deg);
+}
+
+.card-value {
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+
+.flip-card.matched .card-value {
+    animation: dance 1s linear infinite 0.4s;
+}
+
+@keyframes dance {
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(30deg);
+    }
+    75% {
+        transform: rotate(-30deg);
+    }
+}
+
+.card-front:hover .card-value {
+    transform: scale(1);
+}
+
+.flip-card.visible .card-back {
+    transform: rotateY(-180deg);
+}
+
+.flip-card.visible .card-front {
+    transform: rotateY(0deg);
+}
+
+.cob-web {
+    position: absolute;
+    width: 47px;
+    height: 47px;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.card-face:hover .cob-web {
+    width: 50px;
+    height: 50px;
+}
+
+.cob-web-top-left {
+    transform: rotate(270deg);
+    top: 0;
+    left: 0;
+}
+
+.cob-web-top-right {
+    top: 0;
+    right: 0;
+}
+
+.cob-web-bottom-left {
+    transform: rotate(180deg);
+    bottom: 0;
+    left: 0;
+}
+
+.cob-web-bottom-right {
+    transform: rotate(90deg);
+    bottom: 0;
+    right: 0;
+}
+
+.Spider {
+    align-self: flex-start;
+    transform: translateY(-10px);
+    transition: 0.3s ease-in-out;
+}
+
+.card-back:hover .Spider {
+    transform: translateY(0);
+}
+
+.overlay-text-small {
+    display: block !important;
+    font-size: 0.3em;
+}
+
+.overlay-text.visible {
+    display: flex;
+    animation: overlay-grow 0.5s forwards;
+    flex-direction: column;
+}
+
+@media (max-width:600px) {
+    .game-container {
+        grid-template-columns: repeat(2, auto);
+    }
+    .game-info {
+        flex-direction: column;
+        align-items: center;
+    }
+}
